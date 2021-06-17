@@ -1,14 +1,18 @@
+from logging import debug
 import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI, Response
 import time
 
 app = FastAPI()
 
 
-@app.get("/hello")
+@app.get("/fraud/hello")
 async def hello():
-    return "Hello Fraud {}:{}".format(time.localtime().tm_min,
+    time.sleep(2)
+    body = "Hello Fraud {}:{}".format(time.localtime().tm_min,
                                       time.localtime().tm_sec)
+    return Response(content=body, status_code=200)
+
 
 if __name__ == '__main__':
     uvicorn.run('fraud_service:app', port=8000, reload=True)
