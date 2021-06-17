@@ -5,21 +5,21 @@
     {
       "type": "HTTP-RAW",
       "params": {
-        "url": "http://127.0.0.1:8000/offers/hot",
+        "url": "http://127.0.0.1:8000/offer/hot",
         "regex": "(.*)"
       }
     },
     {
       "type": "HTTP-RAW",
       "params": {
-        "url": "http://127.0.0.1:8001/offers",
+        "url": "http://127.0.0.1:8001/offer",
         "regex": "(.*)"
       }
     },
     {
       "type": "HTTP-FORMATTED",
       "params": {
-        "url": "http://127.0.0.1:8001/offers/circuit",
+        "url": "http://127.0.0.1:8001/offer/circuit",
         "format": "JSON",
         "key": "current_state",
         "regex": "closed"
@@ -28,7 +28,7 @@
     {
       "type": "HTTP-FORMATTED",
       "params": {
-        "url": "http://127.0.0.1:8001/offers/circuit",
+        "url": "http://127.0.0.1:8001/offer/circuit",
         "format": "JSON",
         "key": "fail_counter"
       }

@@ -6,11 +6,11 @@ import time
 app = FastAPI()
 
 
-@app.get("/offers/hot")
-async def get_offers():
+@app.get("/offer/hot")
+async def get_offer():
     time.sleep(1)
-    body = "Hot offers {}:{}".format(time.localtime().tm_min,
-                                     time.localtime().tm_sec)
+    body = "Hot offer {}:{}".format(time.localtime().tm_min,
+                                    time.localtime().tm_sec)
     return Response(content=body, status_code=200)
 
 
