@@ -1,0 +1,37 @@
+{
+  "version": "2.0",
+  "columns": 2,
+  "tiles": [
+    {
+      "type": "HTTP-RAW",
+      "params": {
+        "url": "http://127.0.0.1:8000/fraud/hello",
+        "regex": "Hello\\s(.*)"
+      }
+    },
+    {
+      "type": "HTTP-RAW",
+      "params": {
+        "url": "http://127.0.0.1:8001/order/hello",
+        "regex": "Hello\\s(.*)"
+      }
+    },
+    {
+      "type": "HTTP-FORMATTED",
+      "params": {
+        "url": "http://127.0.0.1:8001/order/circuit",
+        "format": "JSON",
+        "key": "current_state",
+        "regex": "closed"
+      }
+    },
+    {
+      "type": "HTTP-FORMATTED",
+      "params": {
+        "url": "http://127.0.0.1:8001/order/circuit",
+        "format": "JSON",
+        "key": "fail_counter"
+      }
+    }
+  ]
+}
