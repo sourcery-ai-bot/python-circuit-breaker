@@ -20,7 +20,7 @@ async def hello():
 @circuit_breaker(__pybreaker_call_async=True)
 async def get_hello():
     async with httpx.AsyncClient(base_url=fraud_base_url) as client:
-        response = await client.get('/fraud/hello', timeout=3)
+        response = await client.get('/fraud/hello', timeout=2)
         response.raise_for_status()
         return response.text
 
@@ -30,7 +30,7 @@ async def get_hello_fallback():
                                                time.localtime().tm_sec)
 
 
-@app.get("/circuit")
+@app.get("/order/circuit")
 def get_circuit():
     return {
         "current_state": circuit_breaker.current_state,

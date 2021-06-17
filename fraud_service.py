@@ -8,7 +8,7 @@ app = FastAPI()
 
 @app.get("/fraud/hello")
 async def hello():
-    time.sleep(2)
+    time.sleep(1)
     body = "Hello Fraud {}:{}".format(time.localtime().tm_min,
                                       time.localtime().tm_sec)
     return Response(content=body, status_code=200)
