@@ -4,7 +4,7 @@
 
 Nesse exemplo vamos executar o serviço de oferta (fria) que se comunica com o serviço de oferta do parceiro (quente). Depois vamos provocar uma indisponibilidade no serviço de oferta do parceiro, retornando uma oferta fria (fallback) do serviço de oferta.
 
-![Fluxo de oferta!](/imgs/offer-activity.png "Fluxo de oferta")
+![Fluxo de oferta!](/imgs/offer-flow.png "Fluxo de oferta")
 
 Veremos que em certo momento o serviço de oferta deixará de se comunicar com o serviço de oferta do parceiro, abrindo o circuito (open), após um determinado tempo o serviço de oferta continuará tentando restabelecer a comunicação com serviço de oferta do parceiro.
 
