@@ -1,16 +1,14 @@
 # fast-circuit-breaker
 
-> Exemplo do padrão circuit breaker em python.
-
-## Porque
-
-Circuit breakers existem para permitir que uma parte do seu sistema falhe sem destruir todo seu ecossistema de serviços.
+> Circuit breakers existem para permitir que uma parte do seu sistema falhe sem destruir todo seu ecossistema de serviços. Michael Nygard
 
 Nesse exemplo vamos executar o serviço de oferta (fria) que se comunica com o serviço de oferta do parceiro (quente). Depois vamos provocar uma indisponibilidade no serviço de oferta do parceiro, retornando uma oferta fria (fallback) do serviço de oferta.
 
-Veremos que em certo momento o serviço de oferta deixará de se comunicar com o serviço de oferta do parceiro, abrindo o circuito (open), após um determinado tempo o serviço de oferta continuará tentando restabelecer a comunicação com serviço de oferta do parceiro. 
+Veremos que em certo momento o serviço de oferta deixará de se comunicar com o serviço de oferta do parceiro, abrindo o circuito (open), após um determinado tempo o serviço de oferta continuará tentando restabelecer a comunicação com serviço de oferta do parceiro.
 
 Quando a comunicação entre os serviços for restabelecida, o circuito será fechado (close).
+
+![Estados do circuit breaker!](/imgs/circuit-breaker-states.png "Estados do circuit breaker")
 
 ## Instalação
 
