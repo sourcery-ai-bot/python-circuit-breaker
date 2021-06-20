@@ -1,4 +1,3 @@
-from logging import debug
 import uvicorn
 from fastapi import FastAPI, Response
 import time
@@ -11,7 +10,7 @@ async def get_offer():
     time.sleep(1)
     body = "Hot offer {}:{}".format(time.localtime().tm_min,
                                     time.localtime().tm_sec)
-    return Response(content=body, status_code=200)
+    return Response(content=body, status_code=500)
 
 
 if __name__ == '__main__':

@@ -19,6 +19,9 @@ class LogListener(CircuitBreakerListener):
 
 
 state_storage = CircuitMemoryStorage(STATE_CLOSED)
-circuit_breaker = CircuitBreaker(fail_max=3, reset_timeout=15,
-                                 state_storage=state_storage,
-                                 listeners=[LogListener()])
+circuit_breaker = CircuitBreaker(
+    fail_max=3,
+    reset_timeout=15,
+    state_storage=state_storage,
+    listeners=[LogListener()]
+)

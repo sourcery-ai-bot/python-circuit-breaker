@@ -10,22 +10,22 @@ app = FastAPI()
 
 
 @app.get("/offer")
-async def offer():
+def offer():
     try:
-        return await get_offer()
+        return get_offer()
     except Exception:
-        return await get_cold_offer_fallback()
+        return get_cold_offer_fallback()
 
 
-@circuit_breaker(__pybreaker_call_async=True)
-async def get_offer():
-    async with httpx.AsyncClient(base_url=partner_offer_url) as client:
-        response = await client.get('/offer/hot', timeout=2)
+@circuit_breaker
+def get_offer():
+    with httpx.Client(base_url=partner_offer_url) as client:
+        response = client.get('/offer/hot', timeout=2)
         response.raise_for_status()
         return response.text
 
 
-async def get_cold_offer_fallback():
+def get_cold_offer_fallback():
     return "Cold offer fallback {}:{}".format(time.localtime().tm_min,
                                               time.localtime().tm_sec)
 
