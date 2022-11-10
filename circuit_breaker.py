@@ -8,8 +8,7 @@ class LogListener(CircuitBreakerListener):
         print("Antes do circuito invocar a função.")
 
     def state_change(self, cb, old_state, new_state):
-        print("Quando o estado do circuito mudou ({}).".format(
-            new_state.name))
+        print(f"Quando o estado do circuito mudou ({new_state.name}).")
 
     def failure(self, cb, exc):
         print("Quando uma invocação de função levanta uma exceção.")

@@ -26,8 +26,7 @@ def get_offer():
 
 
 def get_cold_offer_fallback():
-    return "Cold offer fallback {}:{}".format(time.localtime().tm_min,
-                                              time.localtime().tm_sec)
+    return f"Cold offer fallback {time.localtime().tm_min}:{time.localtime().tm_sec}"
 
 
 @app.get("/offer/circuit")

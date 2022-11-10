@@ -8,8 +8,7 @@ app = FastAPI()
 @app.get("/offer/hot")
 async def get_offer():
     time.sleep(1)
-    body = "Hot offer {}:{}".format(time.localtime().tm_min,
-                                    time.localtime().tm_sec)
+    body = f"Hot offer {time.localtime().tm_min}:{time.localtime().tm_sec}"
     return Response(content=body, status_code=500)
 
 
